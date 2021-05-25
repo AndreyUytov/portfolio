@@ -13,6 +13,66 @@ body {
 }
 
 .page-header__up-wrapper {
+  margin-bottom: 200px;
+
   display: flex;
   justify-content: space-between;
+}
+
+.header-page__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-site {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-site__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-site__item {
+  &:not(:last-of-type) {
+    margin-right: 40px;
+  }
+}
+
+.header-page__git-acc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & svg {
+    margin-right: 8px;
+  }
+}
+
+.page-header__center-wrapper {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: [left] 1fr [center] 10fr [right] 1fr;
+}
+
+.page-header__contacts-list {
+  grid-column: left;
+}
+
+.page-header__title-block {
+  grid-column: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-header__slider {
+  grid-column: right;
 }
