@@ -9,11 +9,12 @@ body {
   height: 100vh;
   width: 100%;
   margin-bottom: 200px;
+  padding-top: 64px;
 
   display: grid;
   grid-template-columns: 1fr [content]12fr 1fr;
   grid-template-rows: auto [title]1fr;
-  grid-gap: 200px 0px;
+  grid-gap: 64px 0px;
 }
 
 .page-header__up-wrapper {
@@ -53,10 +54,21 @@ body {
 
 .header-page__git-acc {
   grid-column: git;
-
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.header-page__git-acc-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Gilroy';
+  font-size: 14px;
+  line-height: 21px;
+
+  color: #ffffff;
 
   & svg {
     margin-right: 8px;
@@ -76,6 +88,46 @@ body {
 
 .page-header__contacts-list {
   grid-column: left;
+}
+
+.contacts-list__item {
+  width: 20px;
+  height: 20px;
+
+  overflow: hidden;
+  transition: all 0.3s;
+
+  &:hover {
+    width: 100%;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 26px;
+  }
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contacts-list__link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.link-text {
+  margin-left: 10px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #ffffff;
 }
 
 .page-header__title-block {
@@ -120,8 +172,6 @@ body {
   font-weight: 600;
   font-size: 88px;
   line-height: 100px;
-
-  text-transform: capitalize;
 }
 
 .page-header__pointer {
