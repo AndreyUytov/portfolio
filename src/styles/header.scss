@@ -90,6 +90,17 @@ body {
   grid-column: left;
 }
 
+.contacts-list__title {
+  margin-bottom: 24px;
+
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  writing-mode: tb-rl;
+}
+
 .contacts-list__item {
   width: 20px;
   height: 20px;
@@ -102,7 +113,7 @@ body {
   }
 
   &:not(:last-of-type) {
-    margin-bottom: 26px;
+    margin-bottom: 24px;
   }
   display: flex;
   justify-content: flex-start;
