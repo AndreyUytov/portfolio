@@ -1,15 +1,18 @@
-import { animate, makeEaseOut, penta } from './animate.js'
+import { animate, makeToZero, tripple, makeEaseOut, setupEndValue } from './animate.js'
 
-const makeEasyPenta = makeEaseOut(penta)
+let makeTrippleToZero = makeToZero(makeEaseOut(tripple))
 
 const sliderList = document.querySelector('.page-header__slider-list')
 const projectList = document.querySelector('.projects-section__list')
 
 function getCoords(elem) {
-  return elem.getBoundingClientRect().top + pageYOffset
+  return {
+    top: elem.getBoundingClientRect().top + pageYOffset,
+    bottom: elem.getBoundingClientRect().bottom + pageYOffset
+  }
 }
 
-console.log(getCoords(projectList.children[0]))
+let currentSliderItem = sliderList.querySelector('.page-header__slider-item--active')
 
 sliderList.addEventListener('click', (evt) => {
   evt.preventDefault()
@@ -18,20 +21,57 @@ sliderList.addEventListener('click', (evt) => {
   if (!link) return
 
   let position = Number(link.dataset.position)
-  let scrollPosition
-  if (isNaN(position)) {
-    scrollPosition = 0
-    return
-  }
-
-  let projectItemPosition = getCoords(projectList.children[position])
-  console.log(projectItemPosition)
-
-  window.scrollTo(0, projectItemPosition)
+  let projectItemPosition = isNaN(position) ? 0 : getCoords(projectList.children[position]).top
 
   animate({
-    timing: makeEasyPenta,
+    timing: makeTrippleToZero,
     duration: 1300,
-    draw,
+    draw(progress) {
+      window.scrollTo(0, setupEndValue(pageYOffset, projectItemPosition, progress))
+    }
+  }).then(() => {
+    currentSliderItem.classList.remove('page-header__slider-item--active')
+    currentSliderItem = link.parentElement
+    currentSliderItem.classList.add('page-header__slider-item--active')
   })
 })
+
+let arrayOfCoordsElements = []
+
+Array.from(projectList.children).forEach((el,i) => {
+  arrayOfCoordsElements.push({coords: getCoords(el), i})
+})
+
+console.log(arrayOfCoordsElements);
+
+function isVisible({coords, i}) {
+  let windowTop = pageYOffset
+  let windowBottom = pageYOffset + document.documentElement.clientHeight
+  
+  if(coords.top >= windowTop && coords.bottom <= windowBottom) {
+    sliderList.dispatchEvent(new CustomEvent('visible-el', {
+      bubbles: true,
+      detail: {i}
+    }))
+  }
+}
+
+window.addEventListener('scroll', () => {
+  if(pageYOffset < arrayOfCoordsElements[0].coords.top) {
+    updateCurrentSlider(0)
+  }
+  arrayOfCoordsElements.forEach(el => {
+    isVisible(el)
+  })
+})
+
+document.addEventListener('visible-el', (evt) => {
+  let index = evt.detail.i + 1
+  updateCurrentSlider(index)
+})
+
+function updateCurrentSlider(index) {
+  currentSliderItem.classList.remove('page-header__slider-item--active')
+  currentSliderItem = sliderList.children[index]
+  currentSliderItem.classList.add('page-header__slider-item--active')
+}

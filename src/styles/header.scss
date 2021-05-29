@@ -218,6 +218,8 @@ body {
 }
 
 .page-header__slider-item {
+  position: relative;
+
   font-family: 'Gilroy';
   font-size: 18px;
   line-height: 22px;
@@ -227,16 +229,21 @@ body {
     margin-bottom: 40px;
   }
 
+  &::after {
+    content: '';
+    position: absolute;
+    top: -16px;
+    right: -35px;
+    width: 3px;
+    height: 0px;
+    background-color: #fff;
+
+    transition: all 0.3s ease-in-out;
+  }
+
   &--active {
-    position: relative;
     &::after {
-      content: '';
-      position: absolute;
-      top: -16px;
-      right: -35px;
-      width: 3px;
-      height: 64px;
-      background-color: #fff;
-    }
+    height: 64px; 
+    }   
   }
 }

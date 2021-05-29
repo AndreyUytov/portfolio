@@ -37,6 +37,10 @@ export function penta(timeFraction) {
   return Math.pow(timeFraction, 5)
 }
 
+export function tripple(timeFraction) {
+  return Math.pow(timeFraction, 3)
+}
+
 // принимает функцию расчёта времени и возрващает преобразованный вариант
 export function makeEaseOut(timing) {
   return function (timeFraction) {

@@ -21,6 +21,7 @@
 
 .projects-section__list-item {
   width: 100%;
+  height: calc(100vh - 20%);
   &:not(:last-of-type) {
     margin-bottom: 200px;
   }
