@@ -7,8 +7,7 @@ const projectList = document.querySelector('.projects-section__list')
 
 function getCoords(elem) {
   return {
-    top: elem.getBoundingClientRect().top + pageYOffset,
-    bottom: elem.getBoundingClientRect().bottom + pageYOffset
+    top: elem.getBoundingClientRect().top + pageYOffset
   }
 }
 
@@ -42,27 +41,30 @@ Array.from(projectList.children).forEach((el,i) => {
   arrayOfCoordsElements.push({coords: getCoords(el), i})
 })
 
+arrayOfCoordsElements.reverse()
+
 console.log(arrayOfCoordsElements);
 
-function isVisible({coords, i}) {
-  let windowTop = pageYOffset
-  let windowBottom = pageYOffset + document.documentElement.clientHeight
+function isVisible({coords}) {
   
-  if(coords.top >= windowTop && coords.bottom <= windowBottom) {
-    sliderList.dispatchEvent(new CustomEvent('visible-el', {
-      bubbles: true,
-      detail: {i}
-    }))
+  if(coords.top <= pageYOffset + 250) {
+    return true
   }
 }
 
 window.addEventListener('scroll', () => {
-  if(pageYOffset < arrayOfCoordsElements[0].coords.top) {
+  let item = arrayOfCoordsElements.find(el => {
+    return isVisible(el) === true
+  })
+
+  if(item) {
+    sliderList.dispatchEvent(new CustomEvent('visible-el', {
+      bubbles: true,
+      detail: {i: item.i}
+    }))
+  } else {
     updateCurrentSlider(0)
   }
-  arrayOfCoordsElements.forEach(el => {
-    isVisible(el)
-  })
 })
 
 document.addEventListener('visible-el', (evt) => {
