@@ -32,26 +32,6 @@ body {
   align-items: center;
 }
 
-.nav-site {
-  grid-column: nav;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-site__list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-site__item {
-  &:not(:last-of-type) {
-    margin-right: 40px;
-  }
-}
-
 .header-page__git-acc {
   grid-column: git;
   display: flex;
@@ -179,10 +159,25 @@ body {
 }
 
 .page-header__title {
+  margin: 0%;
+  padding: 0;
+  margin-bottom: 22px;
+
   font-style: normal;
   font-weight: 600;
-  font-size: 88px;
+  font-size: 46px;
   line-height: 100px;
+}
+
+.page-header__desc {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 32px;
+  font-weight: bold;
+
+  font-size: 26px;
+  line-height: 150%;
+  color: white;
 }
 
 .page-header__pointer {
