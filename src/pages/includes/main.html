@@ -3,22 +3,31 @@
     <ul class="projects-section__list list">
       <li id="0" class="projects-section__list-item">
         <div class="projects-section__list-info">
-          <span class="projects-section__list-marker"> get started </span>
+          <span class="projects-section__list-marker"> SPA на реакте </span>
 
-          <h2 class="projects-section__list-title">SPA на реакте</h2>
+          <h2 class="projects-section__list-title">Интернет магазин Krasunya</h2>
 
           <p class="projects-section__list-text">
             В этом проекте 3 страницы -главная, каталог, страница товара. В качестве данных использовал сайт <a href="https://punkapi.com/documentation/v2">punkapi.com</a>. В приложении не используются другие библиотеки кроме реакт и реакт-роутер. 
-            На главной странице блок статей сделан с самодельным слайдером и js-анимацией(функцию animate взял из книги Кантора и немного адаптировал под себя передеав под промис).
-            В шапке страницы реализовал умный поиск с тротлингом(ангилийские названия пива, сервер предоставляет api для поиска пива Brewdog, поэтому искать следует например так, Black, или Ipa, или Russian). Запрос на сервер отправляется сразу после первой выведенной буквы, а затем через секунду после последнего введенного символа, если в течении этой секунды пользователь снова введет символ, то запрос не отправляется, снова запускается таймер на 1 секунду. Работу тротлинга можно проверить в консоли - выводится текст запроса и ответ сервера. 
+            На главной странице блок статей сделан с самодельным слайдером и js-анимацией(функцию animate взял из книги Кантора и немного адаптировал под себя переделав под промис).
+            В шапке страницы реализовал умный поиск с тротлингом (<i style="color: var(--akcent);">используйте английские названия пива!</i>, сервер предоставляет api для поиска пива Brewdog, поэтому искать следует например так, Black, или Ipa, или Russian). Запрос на сервер отправляется сразу после первой выведенной буквы, а затем через секунду после последнего введенного символа, если в течении этой секунды пользователь снова введет символ, то запрос не отправляется, снова запускается таймер на 1 секунду. Работу тротлинга можно проверить в консоли - выводится текст запроса и ответ сервера. 
           </p>
 
-          <a href="https://andreyuytov.github.io/beer-app-whir-cra" class="projects-section__list-link">
-            ссылка на проект
-            <svg class="projects-section__list-svg" width="16" height="24">
-              <use href="#arrow" />
-            </svg>
-          </a>
+          <div class="link-wrapper">
+            <a href="https://andreyuytov.github.io/beer-app-whir-cra" class="projects-section__list-link">
+              проект
+              <svg class="projects-section__list-svg" width="16" height="24">
+                <use href="#arrow" />
+              </svg>
+            </a>
+  
+            <a href="https://github.com/AndreyUytov/beer-app-whir-cra" class="projects-section__list-link">
+              код на github
+              <svg class="projects-section__list-svg" width="16" height="24">
+                <use href="#arrow" />
+              </svg>
+            </a>
+          </div>
         </div>
 
         <div class="projects-section__list-preview">
@@ -28,57 +37,100 @@
 
       <li id="1" class="projects-section__list-item">
         <div class="projects-section__list-info">
-          <span class="projects-section__list-marker"> get started </span>
+          <span class="projects-section__list-marker"> web-components </span>
 
-          <h2 class="projects-section__list-title">Nmae the project</h2>
+          <h2 class="projects-section__list-title">Многостраничной сайт для тестирования</h2>
 
           <p class="projects-section__list-text">
-            Determining what level of hiker you are can be an important tool
-            when planning future hikes. This hiking level guide will help you
-            plan hikes according to different hike ratings set by various
-            websites like All Trails and Modern Hiker. What type of hiker are
-            you – novice, moderate, advanced moderate, expert, or expert
-            backpacker?
+            Проект написан с web-components, реализован собственный drag&drop. Подробное описание проекта в ReadMe.md на github по ссылке ниже
           </p>
 
-          <a href="#" class="projects-section__list-link">
-            read more
-            <svg class="projects-section__list-svg" width="16" height="24">
-              <use href="#arrow" />
-            </svg>
-          </a>
+          <div class="link-wrapper">
+            <a href="https://andreyuytov.github.io/tds/drag-test" class="projects-section__list-link">
+              проект
+              <svg class="projects-section__list-svg" width="16" height="24">
+                <use href="#arrow" />
+              </svg>
+            </a>
+  
+            <a href="https://github.com/AndreyUytov/tds" class="projects-section__list-link">
+              код на github
+              <svg class="projects-section__list-svg" width="16" height="24">
+                <use href="#arrow" />
+              </svg>
+            </a>
+          </div>
         </div>
 
         <div class="projects-section__list-preview">
-          <img src="./../../images/01.png" />
+          <img src="./../../images/tds.png" />
         </div>
       </li>
 
       <li id="2" class="projects-section__list-item">
         <div class="projects-section__list-info">
-          <span class="projects-section__list-marker"> get started </span>
+          <span class="projects-section__list-marker"> web-components </span>
 
-          <h2 class="projects-section__list-title">Nmae the project</h2>
+          <h2 class="projects-section__list-title">Todo с web-components</h2>
 
           <p class="projects-section__list-text">
-            Determining what level of hiker you are can be an important tool
-            when planning future hikes. This hiking level guide will help you
-            plan hikes according to different hike ratings set by various
-            websites like All Trails and Modern Hiker. What type of hiker are
-            you – novice, moderate, advanced moderate, expert, or expert
-            backpacker?
+            Простое to-do приложение на JS с использованием веб-компонентов.
+В приложении реализовал возможность перетаскивания задач в нужном порядке с сохранением состояния в localStorage.
+Сделал свой вариант CreateStore по типу одноименной функции из redux.
+Приложение сделано в стиле MVC без использования сторонних библиотек
           </p>
 
-          <a href="#" class="projects-section__list-link">
-            read more
-            <svg class="projects-section__list-svg" width="16" height="24">
-              <use href="#arrow" />
-            </svg>
-          </a>
+          <div class="link-wrapper">
+            <a href="https://andreyuytov.github.io/todo-js/" class="projects-section__list-link">
+              проект
+              <svg class="projects-section__list-svg" width="16" height="24">
+                <use href="#arrow" />
+              </svg>
+            </a>
+  
+            <a href="https://github.com/AndreyUytov/todo-js" class="projects-section__list-link">
+              код на github
+              <svg class="projects-section__list-svg" width="16" height="24">
+                <use href="#arrow" />
+              </svg>
+            </a>
+          </div>
         </div>
 
         <div class="projects-section__list-preview">
-          <img src="./../../images/01.png" />
+          <img src="./../../images/todo-w-web-components.png" />
+        </div>
+      </li>
+
+      <li id="3" class="projects-section__list-item">
+        <div class="projects-section__list-info">
+          <span class="projects-section__list-marker"> адаптивная верстка </span>
+
+          <h2 class="projects-section__list-title">Адаптивная резиновая верстка</h2>
+
+          <p class="projects-section__list-text">
+            Интернет магазин с самописным слайдером и js-анимацией
+          </p>
+
+          <div class="link-wrapper">
+            <a href="https://andreyuytov.github.io/e-commerce-site/" class="projects-section__list-link">
+              проект
+              <svg class="projects-section__list-svg" width="16" height="24">
+                <use href="#arrow" />
+              </svg>
+            </a>
+  
+            <a href="https://github.com/AndreyUytov/e-commerce-site" class="projects-section__list-link">
+              код на github
+              <svg class="projects-section__list-svg" width="16" height="24">
+                <use href="#arrow" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="projects-section__list-preview">
+          <img src="./../../images/malachit.jpg" />
         </div>
       </li>
     </ul>
