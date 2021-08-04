@@ -202,7 +202,7 @@ body {
 
 .page-header__slider-list {
   position: fixed;
-  padding: 16px 32px;
+  padding: 0 32px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -214,31 +214,46 @@ body {
 
 .page-header__slider-item {
   position: relative;
+  height: 62px;
+  width: 100%;
 
   font-family: 'Gilroy';
   font-size: 18px;
   line-height: 22px;
 
   text-align: right;
-  &:not(:last-of-type) {
-    margin-bottom: 40px;
+
+  & a {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:hover {
+    color: var(--akcent);
   }
 
   &::after {
     content: '';
     position: absolute;
-    top: -16px;
-    right: -35px;
-    width: 3px;
+    top: 0px;
+    right: -36px;
+    width: 5px;
     height: 0px;
-    background-color: #fff;
+    background-color: var(--akcent);
+
+    border-radius: 20%;
 
     transition: all 0.3s ease-in-out;
   }
 
   &--active {
+    color: var(--akcent);
     &::after {
-    height: 64px; 
-    }   
+      height: 62px;
+    }
   }
 }
