@@ -1,4 +1,10 @@
-import { animate, makeToZero, tripple, makeEaseOut, setupEndValue } from './animate.js'
+import {
+  animate,
+  makeToZero,
+  tripple,
+  makeEaseOut,
+  setupEndValue,
+} from './animate.js'
 
 let makeTrippleToZero = makeToZero(makeEaseOut(tripple))
 
@@ -7,11 +13,13 @@ const projectList = document.querySelector('.projects-section__list')
 
 function getCoords(elem) {
   return {
-    top: elem.getBoundingClientRect().top + pageYOffset
+    top: elem.getBoundingClientRect().top + pageYOffset,
   }
 }
 
-let currentSliderItem = sliderList.querySelector('.page-header__slider-item--active')
+let currentSliderItem = sliderList.querySelector(
+  '.page-header__slider-item--active'
+)
 
 sliderList.addEventListener('click', (evt) => {
   evt.preventDefault()
@@ -20,14 +28,19 @@ sliderList.addEventListener('click', (evt) => {
   if (!link) return
 
   let position = Number(link.dataset.position)
-  let projectItemPosition = isNaN(position) ? 0 : getCoords(projectList.children[position]).top
+  let projectItemPosition = isNaN(position)
+    ? 0
+    : getCoords(projectList.children[position]).top
 
   animate({
     timing: makeTrippleToZero,
     duration: 1300,
     draw(progress) {
-      window.scrollTo(0, setupEndValue(pageYOffset, projectItemPosition, progress))
-    }
+      window.scrollTo(
+        0,
+        setupEndValue(pageYOffset, projectItemPosition, progress)
+      )
+    },
   }).then(() => {
     currentSliderItem.classList.remove('page-header__slider-item--active')
     currentSliderItem = link.parentElement
@@ -37,31 +50,30 @@ sliderList.addEventListener('click', (evt) => {
 
 let arrayOfCoordsElements = []
 
-Array.from(projectList.children).forEach((el,i) => {
-  arrayOfCoordsElements.push({coords: getCoords(el), i})
+Array.from(projectList.children).forEach((el, i) => {
+  arrayOfCoordsElements.push({ coords: getCoords(el), i })
 })
 
 arrayOfCoordsElements.reverse()
 
-console.log(arrayOfCoordsElements);
-
-function isVisible({coords}) {
-  
-  if(coords.top <= pageYOffset + 250) {
+function isVisible({ coords }) {
+  if (coords.top <= pageYOffset + 250) {
     return true
   }
 }
 
 window.addEventListener('scroll', () => {
-  let item = arrayOfCoordsElements.find(el => {
+  let item = arrayOfCoordsElements.find((el) => {
     return isVisible(el) === true
   })
 
-  if(item) {
-    sliderList.dispatchEvent(new CustomEvent('visible-el', {
-      bubbles: true,
-      detail: {i: item.i}
-    }))
+  if (item) {
+    sliderList.dispatchEvent(
+      new CustomEvent('visible-el', {
+        bubbles: true,
+        detail: { i: item.i },
+      })
+    )
   } else {
     updateCurrentSlider(0)
   }

@@ -4,10 +4,19 @@
 
   display: grid;
   grid-template-columns: 2fr [content]10fr 2fr;
+
+  @media (max-width: 1274px) {
+    grid-template-columns: 12px [content]1fr 12px;
+  }
 }
 
 .projects-section {
   grid-column: content;
+
+  @media (max-width: 1274px) {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+  }
 }
 
 .projects-section__list {
@@ -35,6 +44,18 @@
   &:nth-child(even) {
     grid-template-columns: [pic-column]4fr [info-column]6fr;
   }
+
+  @media (max-width: 1274px) {
+    height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    &:not(:last-of-type) {
+      margin-bottom: 80px;
+    }
+  }
 }
 
 .projects-section__list-info {
@@ -56,6 +77,12 @@
     color: #ffffff;
 
     opacity: 0.2;
+  }
+  @media (max-width: 1274px) {
+    margin-left: 12px;
+    &::before {
+      font-size: 44px;
+    }
   }
 }
 
@@ -86,6 +113,18 @@
 
     background-color: var(--akcent);
   }
+
+  @media (max-width: 1274px) {
+    padding-left: 32px;
+
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 3px;
+
+    &::before {
+      width: 24px;
+    }
+  }
 }
 
 .projects-section__list-title {
@@ -97,6 +136,13 @@
   font-weight: 600;
   font-size: 64px;
   line-height: 77px;
+
+  @media (max-width: 1274px) {
+    margin-bottom: 12px;
+
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
 
 .projects-section__list-text {
@@ -110,6 +156,13 @@
   line-height: 28px;
 
   color: #ffffff;
+
+  @media (max-width: 1274px) {
+    margin-bottom: 12px;
+
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .projects-section__list-link {
@@ -132,6 +185,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1274px) {
+    margin-bottom: 12px;
+  }
 }
 
 .projects-section__list-svg {
@@ -151,5 +208,12 @@
   & img {
     max-height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: 1274px) {
+    width: 100%;
+    max-height: auto;
+    display: flex;
+    justify-content: center;
   }
 }
